@@ -8,7 +8,7 @@
     <ul>
         <li><RouterLink to="/users/profile">User Profile </RouterLink></li>
         <li><RouterLink to="/users/order">User Order</RouterLink></li>
-        <li><RouterLink to="/users/wishlist">User Wishlist</RouterLink></li>
+        <li><RouterLink tofi="/users/wishlist">User Wishlist</RouterLink></li>
     </ul>
 
     <RouterView/>
