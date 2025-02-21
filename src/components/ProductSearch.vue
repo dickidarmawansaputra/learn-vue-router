@@ -12,6 +12,8 @@ watchEffect(() => {
     // jika pake push ada history pencariannya di simpan
     // router.push({
     router.replace({
+        // pake named route
+        name: 'product-search',
         query: {
             product: search.value,
         },

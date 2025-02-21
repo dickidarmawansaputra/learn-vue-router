@@ -32,6 +32,7 @@ const router = createRouter({
         {
             path: "/products/search",
             component: ProductSearch,
+            name: 'product-search',
         },
         {
             path: "/users",
@@ -40,18 +41,22 @@ const router = createRouter({
                 {
                     path: '',
                     component: UserProfile,
+                    name: 'user', // named route 
                 },
                 {
                     path: 'profile',
                     component: UserProfile,
+                    name: 'user-profile',
                 },
                 {
                     path: 'order',
                     component: UserOrder,
+                    name: 'user-order',
                 },
                 {
                     path: 'wishlist',
                     component: UserWishlist,
+                    name: 'user-wishlist',
                 },
             ],
         },

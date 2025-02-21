@@ -6,9 +6,11 @@
     <h1>User</h1>
 
     <ul>
-        <li><RouterLink to="/users/profile">User Profile </RouterLink></li>
-        <li><RouterLink to="/users/order">User Order</RouterLink></li>
-        <li><RouterLink tofi="/users/wishlist">User Wishlist</RouterLink></li>
+        <li><RouterLink :to="{name: 'user-profile'}">User Profile </RouterLink></li>
+        <li><RouterLink :to="{name: 'user-order'}">User Order</RouterLink></li>
+        <!-- <li><RouterLink to="/users/wishlist">User Wishlist</RouterLink></li> -->
+         <!-- mengunakan named route -->
+        <li><RouterLink :to="{name: 'user-wishlist'}">User Wishlist</RouterLink></li>
     </ul>
 
     <RouterView/>
