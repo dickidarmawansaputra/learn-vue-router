@@ -10,6 +10,9 @@ import User from './components/User.vue'
 import UserProfile from './components/UserProfile.vue'
 import UserOrder from './components/UserOrder.vue'
 import UserWishlist from './components/UserWishlist.vue'
+import UserHeader from './components/UserHeader.vue'
+import UserOrderFooter from './components/UserOrderFooter.vue'
+import UserWishlistFooter from './components/UserWishlistFooter.vue'
 
 const router = createRouter({
     routes: [
@@ -40,22 +43,42 @@ const router = createRouter({
             children: [
                 {
                     path: '',
-                    component: UserProfile,
+                    // component: UserProfile,
+
+                    // menggunakan named view
+                    components: {
+                        header: UserHeader,
+                        default: UserProfile,
+                    },
                     name: 'user', // named route 
                 },
                 {
                     path: 'profile',
-                    component: UserProfile,
+                    // component: UserProfile,
+                    components: {
+                        header: UserHeader,
+                        default: UserProfile,
+                    },
                     name: 'user-profile',
                 },
                 {
                     path: 'order',
-                    component: UserOrder,
+                    // component: UserOrder,
+                    components: {
+                        header: UserHeader,
+                        default: UserOrder,
+                        footer: UserOrderFooter,
+                    },
                     name: 'user-order',
                 },
                 {
                     path: 'wishlist',
-                    component: UserWishlist,
+                    // component: UserWishlist,
+                    components: {
+                        header: UserHeader,
+                        default: UserWishlist,
+                        footer: UserWishlistFooter,
+                    },
                     name: 'user-wishlist',
                 },
             ],
