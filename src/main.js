@@ -19,6 +19,9 @@ const router = createRouter({
         {
             path: "/",
             component: Home,
+            props: {
+                title: "Home",
+            }
         },
         {
             path: "/about",
@@ -31,6 +34,7 @@ const router = createRouter({
             // Tanda ? untuk optional param
             path: "/products/:id(\\d+)?",
             component: ProductDetail,
+            props: true, // namanya harus sama dengan nama props agar bisa
         },
         // redirect
         {
@@ -41,6 +45,11 @@ const router = createRouter({
             path: "/products/search",
             component: ProductSearch,
             name: 'product-search',
+            props: route => (
+                {
+                    product: route.query.product,
+                }
+            )
         },
         {
             path: "/products/search/:keyword",
