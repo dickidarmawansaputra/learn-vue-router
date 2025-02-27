@@ -3,7 +3,7 @@ import App from './App.vue'
 import Home from './components/Home.vue'
 import About from './components/About.vue'
 import ProductDetail from './components/ProductDetail.vue'
-import { createRouter, createWebHistory } from 'vue-router'
+import { createMemoryHistory, createRouter, createWebHashHistory, createWebHistory } from 'vue-router'
 import NotFound from './components/NotFound.vue'
 import ProductSearch from './components/ProductSearch.vue'
 import User from './components/User.vue'
@@ -114,7 +114,9 @@ const router = createRouter({
             component: NotFound,
         }
     ],
-    history: createWebHistory(),
+    history: createWebHistory(), //HTML5 mode
+    // history: createWebHashHistory() // url diawali tanda #
+    // history: createMemoryHistory() // hanya bisa diakses melalui routerlink
 });
 
 createApp(App).use(router).mount('#app')
