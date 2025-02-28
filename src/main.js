@@ -116,11 +116,25 @@ const router = createRouter({
             // Repeatable route
             path: "/:notFound*",
             component: NotFound,
+            // navigation guard per-route (middleware per-route)
+            beforeEnter: (to, from, next) => {
+                console.info(`not found to ${to.fullPath} from ${from.fullPath}`);
+            }
         }
     ],
     history: createWebHistory(), //HTML5 mode
     // history: createWebHashHistory() // url diawali tanda #
     // history: createMemoryHistory() // hanya bisa diakses melalui routerlink
+});
+
+// navigation guard (middleware)
+router.beforeEach((to, from, next) => {
+    console.info(`before navigation to ${to.fullPath} from ${from.fullPath}`);
+    next();
+});
+
+router.afterEach((to, from) => {
+    console.info(`after navigation to ${to.fullPath} from ${from.fullPath}`);
 });
 
 createApp(App).use(router).mount('#app')
