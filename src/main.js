@@ -6,13 +6,13 @@ import ProductDetail from './components/ProductDetail.vue'
 import { createMemoryHistory, createRouter, createWebHashHistory, createWebHistory } from 'vue-router'
 import NotFound from './components/NotFound.vue'
 import ProductSearch from './components/ProductSearch.vue'
-import User from './components/User.vue'
-import UserProfile from './components/UserProfile.vue'
-import UserOrder from './components/UserOrder.vue'
-import UserWishlist from './components/UserWishlist.vue'
-import UserHeader from './components/UserHeader.vue'
-import UserOrderFooter from './components/UserOrderFooter.vue'
-import UserWishlistFooter from './components/UserWishlistFooter.vue'
+// import User from './components/User.vue'
+// import UserProfile from './components/UserProfile.vue'
+// import UserOrder from './components/UserOrder.vue'
+// import UserWishlist from './components/UserWishlist.vue'
+// import UserHeader from './components/UserHeader.vue'
+// import UserOrderFooter from './components/UserOrderFooter.vue'
+// import UserWishlistFooter from './components/UserWishlistFooter.vue'
 
 const router = createRouter({
     routes: [
@@ -64,7 +64,9 @@ const router = createRouter({
         },
         {
             path: "/users",
-            component: User,
+            // lazy loading route
+            component: () => import("./components/User.vue"),
+            // component: User,
             children: [
                 {
                     path: '',
@@ -72,8 +74,10 @@ const router = createRouter({
 
                     // menggunakan named view
                     components: {
-                        header: UserHeader,
-                        default: UserProfile,
+                        header: () => import("./components/UserHeader.vue"),
+                        // header: UserHeader,
+                        default: () => import("./components/UserProfile.vue"),
+                        // default: UserProfile,
                     },
                     name: 'user', // named route 
                 },
@@ -81,8 +85,8 @@ const router = createRouter({
                     path: 'profile',
                     // component: UserProfile,
                     components: {
-                        header: UserHeader,
-                        default: UserProfile,
+                        header: () => import("./components/UserHeader.vue"),
+                        default: () => import("./components/UserProfile.vue"),
                     },
                     name: 'user-profile',
                 },
@@ -90,9 +94,9 @@ const router = createRouter({
                     path: 'order',
                     // component: UserOrder,
                     components: {
-                        header: UserHeader,
-                        default: UserOrder,
-                        footer: UserOrderFooter,
+                        header: () => import("./components/UserHeader.vue"),
+                        default: () => import("./components/UserOrder.vue"),
+                        footer: () => import("./components/UserOrderFooter.vue"),
                     },
                     name: 'user-order',
                 },
@@ -100,9 +104,9 @@ const router = createRouter({
                     path: 'wishlist',
                     // component: UserWishlist,
                     components: {
-                        header: UserHeader,
-                        default: UserWishlist,
-                        footer: UserWishlistFooter,
+                        header: () => import("./components/UserHeader.vue"),
+                        default: () => import("./components/UserWishlist.vue"),
+                        footer: () => import("./components/UserWishlistFooter.vue"),
                     },
                     name: 'user-wishlist',
                 },
