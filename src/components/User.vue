@@ -14,7 +14,11 @@
     </ul> -->
 
     <RouterView name="header"/>
-    <RouterView/>
+    <!-- <RouterView/> -->
+    <!-- router view slot -->
+    <RouterView v-slot="{Component}">
+        <component :is="Component" :request-id="$route.query.requestId"/>
+    </RouterView>
     <RouterView name="footer"/> 
 </template>
 
